@@ -25,7 +25,7 @@ def login_access_token(
     session: SessionDep, form_data: Annotated[OAuth2PasswordRequestForm, Depends()]
 ) -> Token:
     """
-    OAuth2 compatible token login, get an access token for future requests
+    OAuth2 token login for an active user with valid credentials.
     """
     user = crud.authenticate(
         session=session, email=form_data.username, password=form_data.password
